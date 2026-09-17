@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { inspect, receipt } from './core.mjs';
+const f = (name,size=42) => ({name,size});
+test('完整交付每项一份文件才可齐件',()=>{const r=inspect('方案\n报价',[f('方案_v2.pdf'),f('报价.xlsx')]);assert.equal(r.ready,true);assert.equal(r.counts.found,2)});
+test('示例：缺一项、多一版本、清单外一份',()=>{const r=inspect('方案\n报价\n素材\n说明',[f('方案.pdf'),f('报价_v1.xlsx'),f('报价_v2.xlsx'),f('素材.zip'),f('内部.txt')]);assert.deepEqual(r.counts,{found:2,missing:1,multiple:1,shared:0,empty:0});assert.deepEqual(r.extras,[4]);assert.equal(r.ready,false)});
+test('同一文件不能悄悄满足两个交付项',()=>{const r=inspect('方案\n项目方案',[f('项目方案.pdf')]);assert.equal(r.counts.shared,2);assert.equal(r.ready,false)});
+test('0B 文件必须待确认',()=>{assert.equal(inspect('说明',[f('说明.txt',0)]).rows[0].status,'empty')});
+test('空输入不能报齐件',()=>{assert.equal(inspect('',[]).ready,false);assert.equal(inspect('方案',[]).counts.missing,1)});
+test('全角大小写和编号清单兼容',()=>{const r=inspect('1. ＲＥＡＤＭＥ\n- 方案',[f('readme.md'),f('方案.pdf')]);assert.equal(r.ready,true)});
+test('重复关键词和单字关键词明确报错',()=>{assert.match(inspect('ABC\nＡＢＣ',[]).error,/重复/);assert.match(inspect('单',[]).error,/至少/)});
+test('数量长度限制不静默截断',()=>{assert.ok(inspect('abc\n'.repeat(61),[]).error);assert.ok(inspect('a'.repeat(12001),[]).error);assert.ok(inspect('方案',Array.from({length:201},()=>f('a'))).error)});
+test('扩展名按字面匹配，不猜格式或版本',()=>{const r=inspect('报价单.pdf',[f('报价单.xlsx')]);assert.equal(r.counts.missing,1);assert.equal(r.extras.length,1)});
+test('相同名字的文件保留歧义',()=>{assert.equal(inspect('方案',[f('方案.pdf'),f('方案.pdf')]).counts.multiple,1)});
+test('清单外文件阻止齐件',()=>{assert.equal(inspect('方案',[f('方案.pdf'),f('内部.txt')]).ready,false)});
+test('复制小票包含问题、示例标识和验证边界',()=>{const fs=[f('方案.pdf')];const text=receipt(inspect('方案\n报价',fs),fs,true);assert.match(text,/（示例）/);assert.match(text,/缺一份｜报价/);assert.match(text,/未验证内容/)});

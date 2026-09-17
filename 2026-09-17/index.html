@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="发送交付文件前，拖入文件，对照应交清单，一眼发现漏件、多个版本和清单外文件。完全本地，不读取文件内容。">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>齐件 · 发出去之前，再看一眼</title><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script type="module" src="app.mjs"></script>
+</head>
+<body>
+<div class="shell">
+<header><a href="../" class="brand"><span class="brand-icon">齐</span><span>齐件 <small>PACK CHECK</small></span></a><span class="issue">每日巧思 / 001 <span>2026.09.17</span></span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">发送前的最后一眼</p><h1>文件都齐了吗<span>？</span></h1><p class="lede">清单写好，文件拖进来。漏了哪份、哪份有两个版本，一眼就知道。</p></div><div class="local"><span class="local-dot"></span> 只看文件名和大小<br><small>不读取内容 · 不上传 · 不保存</small></div></section>
+<div class="workspace">
+<section class="inputs" aria-label="输入区">
+<div class="panel checklist"><div class="section-head"><h2><span class="step">01</span>这次要交什么</h2><button id="example" class="text-button">试试示例 ↗</button></div>
+<label for="requirements">每行一个文件名关键词</label><textarea id="requirements" spellcheck="false" placeholder="项目方案&#10;报价单&#10;品牌素材&#10;使用说明" aria-describedby="rules" rows="6"></textarea>
+<p id="rules" class="hint">例如「报价单」可匹配「秋季项目_报价单_v2.pdf」。不区分英文大小写；需要指定格式时可写「报价单.pdf」。每项对应一份文件。</p>
+</div>
+<div class="panel file-panel"><div class="section-head"><h2><span class="step">02</span>准备好的文件</h2><button id="clear-files" class="text-button" disabled>清空文件</button></div>
+<button id="dropzone" class="dropzone" type="button"><span class="drop-icon" aria-hidden="true">↧</span><strong>拖一批文件到这里</strong><span>或点击选择 · 可多选、可继续添加</span></button><input id="file-input" type="file" multiple hidden>
+<p class="hint">请选择文件，不支持文件夹或解压 ZIP。最多 200 份。</p><p id="file-error" class="error" role="alert"></p><p id="file-mode" class="file-mode"></p><ul id="file-list" class="file-list" aria-label="已选文件"></ul>
+</div>
+</section>
+<section class="panel results" aria-labelledby="result-title">
+<div class="section-head"><h2 id="result-title">核对小票</h2><span id="mode" class="chip">等待输入</span></div>
+<div id="summary" role="status" aria-live="polite"></div><div id="result-list"></div>
+<div class="receipt-footer"><button id="copy" class="primary" disabled>复制核对小票 <span aria-hidden="true">↗</span></button><p id="copy-status" role="status"></p><textarea id="copy-fallback" aria-label="核对小票，请手动复制" readonly hidden></textarea><p class="hint">仅核对文件名和大小。内容、版本是否正确，以及实际发送的附件，仍需你确认。</p></div>
+</section>
+</div>
+</main>
+<footer><span>把“我记得都放进去了”，变成看得见的清单。</span><a href="https://github.com/xiangjianan/daily-creative-tools/tree/main/2026-09-17">设计记录与源码 ↗</a></footer>
+</div>
+</body></html>
