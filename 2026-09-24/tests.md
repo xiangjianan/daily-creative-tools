@@ -35,4 +35,10 @@ Safari/Firefox、手机真机、剪贴板拒绝回退和跨应用粘贴未验证
 
 ## 线上验证
 
-等待首次部署后追加；当前不据此声称上线成功。
+- 初次产品提交：561ff46b3b6cf04f9d6bfeff56103c512b4bec0a。
+- [Pages部署35937310057](https://github.com/xiangjianan/daily-creative-tools/actions/runs/35937310057)：build、deploy、report均成功。
+- 实际浏览器访问 https://xiangjianan.github.io/daily-creative-tools/2026-09-24/ ，HTML、CSS、模块正常加载。
+- 线上点击示例：70→45分钟，节省25分钟，全部18:45结束。
+- 线上输入「整理 10+0 / 机器运行 2+20」，开始23:50：32→22分钟，节省10分钟；先机器，后整理，全部次日00:12结束。
+- 线上console warn/error为空。
+- 之后仅补充文档发布状态，产品代码不变。

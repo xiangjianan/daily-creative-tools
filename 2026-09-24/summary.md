@@ -17,4 +17,4 @@
 
 [预览](https://xiangjianan.github.io/daily-creative-tools/2026-09-24/) · [源码](https://github.com/xiangjianan/daily-creative-tools/tree/main/2026-09-24) · [调研](research.md) · [设计](design.md) · [测试](tests.md)
 
-发布状态：待线上验证。
+发布状态：GitHub Pages 已部署成功，线上示例与自定义跨午夜清单均已验证。
