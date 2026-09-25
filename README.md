@@ -6,6 +6,7 @@
 
 | 日期 | 工具 | 巧思 | 记录 |
 | --- | --- | --- | --- |
+| 2026-09-25 | [联改](https://xiangjianan.github.io/daily-creative-tools/2026-09-25/) | 选一次生成联动填空，改一处全篇同步 | [总结](2026-09-25/summary.md) · [调研](2026-09-25/research.md) · [设计](2026-09-25/design.md) · [测试](2026-09-25/tests.md) |
 | 2026-09-24 | [顺手排](https://xiangjianan.github.io/daily-creative-tools/2026-09-24/) | 一人动手，等待重叠；即时看见换顺序少等多久 | [总结](2026-09-24/summary.md) · [调研](2026-09-24/research.md) · [设计](2026-09-24/design.md) · [测试](2026-09-24/tests.md) |
 | 2026-09-17 | [齐件](https://xiangjianan.github.io/daily-creative-tools/2026-09-17/) | 一次拖入文件，让文件自己给应交清单打勾 | [总结](2026-09-17/summary.md) · [调研](2026-09-17/research.md) · [设计](2026-09-17/design.md) · [测试](2026-09-17/tests.md) |
 

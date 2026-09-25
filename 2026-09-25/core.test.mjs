@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {transform,addRule,occurrences} from './core.mjs';
+test('同词三处同时更新，其余内容保留',()=>{const r=transform('星河的方案，星河的日期。星河！',[{from:'星河',to:'山岚'}]);assert.equal(r.text,'山岚的方案，山岚的日期。山岚！');assert.equal(r.changed,3);assert.deepEqual(r.counts,[3]);});
+test('同时替换不级联，支持互换',()=>{assert.equal(transform('甲乙',[{from:'甲',to:'乙'},{from:'乙',to:'甲'}]).text,'乙甲');assert.equal(transform('A B',[{from:'A',to:'B'},{from:'B',to:'C'}]).text,'B C');});
+test('替换值按字面保留美元和正则字符',()=>{assert.equal(transform('a.b a.b',[{from:'a.b',to:'$&\\x'}]).text,'$&\\x $&\\x');});
+test('绑定全部不更改原文，去除原词两端空白',()=>{const r=addRule('你好，你好',[],' 你好 ');assert.equal(transform('你好，你好',r).text,'你好，你好');assert.equal(transform('你好，你好',r).changed,0);});
+test('拒绝原词不存在、重复、空和超长',()=>{assert.throws(()=>addRule('abc',[],'z'));assert.throws(()=>addRule('abc',[{from:'a',to:'d'}],'a'));assert.throws(()=>addRule('abc',[],' '));assert.throws(()=>addRule('a'.repeat(101),[],'a'.repeat(101)));});
+test('拒绝跨规则重叠而非静默吞掉',()=>{assert.throws(()=>transform('星河咖啡',[{from:'星河',to:'山岚'},{from:'星河咖啡',to:'书店'}]),/重叠/);assert.throws(()=>transform('abc',[{from:'ab',to:'x'},{from:'bc',to:'y'}]),/重叠/);});
+test('单一模式自重叠按从左到右非重叠匹配',()=>{assert.equal(occurrences('aaaaa','aa').length,2);assert.equal(transform('aaaaa',[{from:'aa',to:'X'}]).text,'XXa')});
+test('原文编辑导致绑定丢失可检测',()=>{const r=transform('新文稿',[{from:'旧名',to:'新名'}]);assert.deepEqual(r.missing,[0]);assert.equal(r.text,'新文稿');});
+test('空与错误输入和上限',()=>{assert.equal(transform('',[]).text,'');assert.throws(()=>transform('a'.repeat(12001),[]));assert.throws(()=>transform('ab',[{from:'a',to:''}]));assert.throws(()=>transform('ab',[{from:'a',to:' '.repeat(2)}]));assert.throws(()=>transform('ab',[{from:'a',to:'x'.repeat(201)}]));assert.throws(()=>transform('123456789',Array.from({length:9},(_,i)=>({from:String(i+1),to:'x'}))));});
+test('大小写、emoji、换行与未绑定片段原样保留',()=>{const r=transform('Acme acme\n🍀给🍀\n未绑定',[{from:'Acme',to:'Beta'},{from:'🍀',to:'🌷'}]);assert.equal(r.text,'Beta acme\n🌷给🌷\n未绑定');assert.deepEqual(r.counts,[1,2]);});
+test('HTML文本保持字面值',()=>{const s='<img src=x onerror=alert(1)>';assert.equal(transform('旧名',[{from:'旧名',to:s}]).text,s)});
