@@ -17,4 +17,4 @@
 
 [当天预览](https://xiangjianan.github.io/daily-creative-tools/2026-09-25/) · [源码](https://github.com/xiangjianan/daily-creative-tools/tree/main/2026-09-25) · [调研](research.md) · [设计](design.md) · [测试](tests.md)
 
-发布状态：等待线上验证。
+发布状态：Pages部署成功，线上示例与自定义两处绑定、预览、复制回读通过，控制台无错误；系列首页保留全部历史入口。详见[部署验证](tests.md#部署验证)。
