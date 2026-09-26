@@ -18,4 +18,4 @@ Image Toolbox创建于2022年，本次引用是近30天的实质更新，不冒�
 
 [调研](research.md) · [设计](design.md) · [测试](tests.md)
 
-发布：待线上验证。
+发布：Pages成功，线上保护框修改、方形PNG真实下载及尺寸/图像检查通过，console无错误；首页保留四个入口。详见[测试记录](tests.md#发布)。
