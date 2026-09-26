@@ -6,6 +6,7 @@
 
 | 日期 | 工具 | 巧思 | 记录 |
 | --- | --- | --- | --- |
+| 2026-09-26 | [留住](https://xiangjianan.github.io/daily-creative-tools/2026-09-26/) | 框一次保护主体，三画幅自动构图，装不下则留白 | [总结](2026-09-26/summary.md) · [调研](2026-09-26/research.md) · [设计](2026-09-26/design.md) · [测试](2026-09-26/tests.md) |
 | 2026-09-25 | [联改](https://xiangjianan.github.io/daily-creative-tools/2026-09-25/) | 选一次生成联动填空，改一处全篇同步 | [总结](2026-09-25/summary.md) · [调研](2026-09-25/research.md) · [设计](2026-09-25/design.md) · [测试](2026-09-25/tests.md) |
 | 2026-09-24 | [顺手排](https://xiangjianan.github.io/daily-creative-tools/2026-09-24/) | 一人动手，等待重叠；即时看见换顺序少等多久 | [总结](2026-09-24/summary.md) · [调研](2026-09-24/research.md) · [设计](2026-09-24/design.md) · [测试](2026-09-24/tests.md) |
 | 2026-09-17 | [齐件](https://xiangjianan.github.io/daily-creative-tools/2026-09-17/) | 一次拖入文件，让文件自己给应交清单打勾 | [总结](2026-09-17/summary.md) · [调研](2026-09-17/research.md) · [设计](2026-09-17/design.md) · [测试](2026-09-17/tests.md) |
@@ -22,6 +23,6 @@ node --test 2026-09-17/core.test.mjs
 
 ## 维护约定
 
-日期目录不可覆盖。先检查当天是否已交付，再续做未完成内容或追加新日期。每次保留 research.md、design.md、tests.md、summary.md，维护首页索引。不读取或上传用户文件内容，不保存用户清单，不强推历史。
+日期目录不可覆盖。先检查当天是否已交付，再续做未完成内容或追加新日期。每次保留 research.md、design.md、tests.md、summary.md，维护首页索引。只在用户主动选择后本地读取必要内容，不上传用户文件，不持久保存输入，不强推历史。
 
 GitHub Pages 从 main 分支根目录发布。
