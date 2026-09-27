@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {calculate,note} from './core.mjs';
+const row=(name,each,stock)=>({name,each,stock});
+test('示例短板和下一阈值',()=>{const r=calculate([row('卡',1,50),row('糖',3,130),row('贴',1,38),row('袋',1,45)]);assert.deepEqual([r.current,r.next,r.gain],[38,43,5]);assert.deepEqual(r.items.map(i=>i.add),[0,0,5,0]);assert.deepEqual(r.items.map(i=>i.remaining),[12,16,0,7])});
+test('补量使用实际余件，不是袋差乘用量',()=>{const r=calculate([row('糖',3,8),row('袋',1,5)]);assert.equal(r.current,2);assert.equal(r.next,5);assert.equal(r.items[0].add,7)});
+test('多个短板必须同时补',()=>{const r=calculate([row('甲',2,5),row('乙',3,8),row('丙',1,6)]);assert.deepEqual(r.items.map(i=>i.add),[7,10,0]);assert.equal(r.next,6)});
+test('全都卡住及单一物品只再算一袋',()=>{const r=calculate([row('甲',2,5),row('乙',3,8)]);assert.equal(r.allTied,true);assert.equal(r.next,3);assert.deepEqual(r.items.map(i=>i.add),[1,1]);assert.equal(calculate([row('袋',1,0)]).next,1)});
+test('零库存有效',()=>assert.equal(calculate([row('袋',1,0),row('卡',2,10)]).current,0));
+test('拒绝空值、负数、小数、指数、越界与重复',()=>{for(const each of['',0,-1,1.5,'1e2',1000])assert.throws(()=>calculate([row('甲',each,10)]));for(const stock of['',-1,1.2,'1e3',100000])assert.throws(()=>calculate([row('甲',1,stock)]));assert.throws(()=>calculate([]));assert.throws(()=>calculate([row('',1,1)]));assert.throws(()=>calculate([row('甲',1,1),row(' 甲 ',1,2)]));assert.throws(()=>calculate(Array.from({length:13},(_,i)=>row('物'+i,1,1))))});
+test('补料后恰达下一阈值，当前数量守恒（400组）',()=>{for(let a=0;a<20;a++)for(let b=0;b<20;b++){const r=calculate([row('甲',3,a),row('乙',2,b),row('丙',1,12)]);assert.equal(Math.min(...r.items.map(i=>Math.floor((i.stock+i.add)/i.each))),r.next);r.items.forEach(i=>{assert.equal(i.remaining+r.current*i.each,i.stock);assert.ok(i.add>=0);if(!i.limiting)assert.equal(i.add,0)})}});
+test('复制单明确假设、不含HTML执行',()=>{const r=calculate([row('<b>袋</b>',1,3)]);assert.ok(note(r).includes('<b>袋</b>'));assert.ok(note(r).includes('不含损耗'));assert.ok(note(r).includes('再装1袋'))});

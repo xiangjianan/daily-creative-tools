@@ -6,6 +6,7 @@
 
 | 日期 | 工具 | 巧思 | 记录 |
 | --- | --- | --- | --- |
+| 2026-09-27 | [多一袋](https://xiangjianan.github.io/daily-creative-tools/2026-09-27/) | 只补当前短板，解锁下一批完整礼袋 | [总结](2026-09-27/summary.md) · [调研](2026-09-27/research.md) · [设计](2026-09-27/design.md) · [测试](2026-09-27/tests.md) |
 | 2026-09-26 | [留住](https://xiangjianan.github.io/daily-creative-tools/2026-09-26/) | 框一次保护主体，三画幅自动构图，装不下则留白 | [总结](2026-09-26/summary.md) · [调研](2026-09-26/research.md) · [设计](2026-09-26/design.md) · [测试](2026-09-26/tests.md) |
 | 2026-09-25 | [联改](https://xiangjianan.github.io/daily-creative-tools/2026-09-25/) | 选一次生成联动填空，改一处全篇同步 | [总结](2026-09-25/summary.md) · [调研](2026-09-25/research.md) · [设计](2026-09-25/design.md) · [测试](2026-09-25/tests.md) |
 | 2026-09-24 | [顺手排](https://xiangjianan.github.io/daily-creative-tools/2026-09-24/) | 一人动手，等待重叠；即时看见换顺序少等多久 | [总结](2026-09-24/summary.md) · [调研](2026-09-24/research.md) · [设计](2026-09-24/design.md) · [测试](2026-09-24/tests.md) |
