@@ -18,4 +18,4 @@
 
 [调研](research.md) · [设计](design.md) · [测试](tests.md)
 
-发布：待线上验证。
+发布：功能提交 `ad8a899` 已通过 [Pages 部署](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36363006287)。线上自定义两张、切换配对与实际SVG下载通过；首页六个历史入口完整。[线上截图](preview.png)。

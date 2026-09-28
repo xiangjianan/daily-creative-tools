@@ -24,4 +24,4 @@
 
 ## 发布
 
-待Pages成功后追加线上验证。
+功能提交 `ad8a899` 的 [Pages 部署](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36363006287) 成功。线上输入“阿禾 / 先问对方最需要什么”和“小舟 / 用一个例子讲清楚”，显示2张/1页；切换小舟时提示正确。点击下载得到真实1488字节SVG，XML解析核实A4尺寸及两组完整文字。线上console error/warn为空。首页六个工具入口完整。保存当前视口截图preview.png；全页截图拼接出现重复区域，因此未采用。
