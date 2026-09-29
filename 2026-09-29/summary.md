@@ -20,4 +20,4 @@
 
 [调研](research.md) · [设计](design.md) · [测试](tests.md)
 
-发布：待线上核验。
+发布：功能提交 `4c977d9` 已通过[Pages部署](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36501820467)，线上六人新名单、翻轮/回退、真实复制粘贴及下载均已核验，历史六日完整。附[线上结果截图](preview.png)。
