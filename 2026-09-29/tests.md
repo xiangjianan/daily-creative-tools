@@ -32,3 +32,7 @@
 功能提交 `4c977d9` 的 [Pages部署](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36501820467) 已成功。线上六人自定义名单生成5轮，首转场3人移动/3人原位；下一轮后返回上一轮，桌对与路线恢复一致。线上复制后真实Meta+V粘贴出对应指令，下载文本含初始座位及4个完整转场；文件大小见下。线上控制台error/warn为空，首页七个工具入口完整。保存当前结果视图[preview.png](preview.png)。
 
 线上下载文件：1376字节，末轮为第4→5轮。
+
+### 9月30日收尾复核
+
+9月30日确认最终记录提交 `bd0c9c4` 的 [Pages部署36501966870](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36501966870) 已成功。重新打开线上八人示例并切换到第2→3轮，4人移动/4人原位、桌对与路线一致，控制台error/warn为空。昨日实际复制、下载与六人自定义验证已在上文真实记录；本次为收尾，不冒作9/30新工具。
