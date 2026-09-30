@@ -32,4 +32,4 @@
 
 ## 发布
 
-待Pages部署后追加线上核验。
+功能提交 `bcc7ecb` 的 [Pages部署36649383834](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36649383834) 成功。线上输入新例 `WiFi-lO2` 与 `WiFi-102` 加末尾换行，准确指出第6位数字1→小写L、第7位数字0→大写O、第9位删除换行；三处逐次修正后完全一致。点击复制B，先把A改成temporary，再用真实浏览器键盘粘贴，A恢复WiFi-lO2并完全一致，证明不是旧输入造成假阳性。线上console error/warn为空，首页八个工具入口完整。[线上截图](preview.png)已归档。

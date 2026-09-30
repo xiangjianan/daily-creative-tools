@@ -19,4 +19,4 @@
 
 [调研](research.md) · [设计](design.md) · [测试](tests.md)
 
-发布：待线上核验。
+发布：`bcc7ecb` 已通过[Pages部署](https://github.com/xiangjianan/daily-creative-tools/actions/runs/36649383834)，线上新口令三处差异→逐处修正→真实复制粘贴完整验证通过，首页八个入口完整。[线上截图](preview.png)。
